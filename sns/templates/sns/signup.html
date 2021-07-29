@@ -1,0 +1,31 @@
+{% extends 'sns/base.html' %}
+
+{% block content %}
+
+<div class="container" style="padding:1em; width:50%; margin-left:auto; margin-right:auto;">
+<form class="form-signin" method="post">{%csrf_token%}
+      <h1 class="h3 mb-3 fw-normal" style="text-align:center;">新規ユーザー登録</h1>
+      {% if error %}
+      <p>{{error}}</p>
+      {% endif %}
+
+      <div style="padding:0.5em;">
+        <label for="inputEmail" class="sr-only">ユーザー名</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username_data" required autofocus>
+      </div>
+      <div style="padding:0.5em;">
+        <label for="inputPassword" class="sr-only">パスワード</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="password" name="password_data" required>  
+      </div>  
+      
+      <div class="checkbox mb-3">
+      </div>
+      <div style="padding:0.5em;">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">登録</button>
+      </div>
+      <p style="padding:0.5em;">アカウントをお持ちですか？　<a href="{% url 'login' %}">ログイン</a></p>
+     
+</form>
+</div>
+
+{% endblock content %}

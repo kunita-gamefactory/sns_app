@@ -1,0 +1,26 @@
+{% extends 'sns/base.html' %}
+
+{% block content %}
+<div class="container" style="padding:1em; width:50%; margin-left:auto; margin-right:auto;">
+    <form class="form-signin" method='POST'>{% csrf_token %}
+      <!--
+          <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="72">
+      -->
+        <h1 class="h3 mb-3 fw-normal" style="text-align:center;">使用するにはログインしてください</h1>
+            <div style="padding:0.5em;">
+                <label for="inputEmail" class="sr-only">Username</label>
+                <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username_data" required autofocus>
+            </div>
+            
+            <div style="padding:0.5em;">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password_data" required>
+            </div>
+            <div style="padding:0.5em;">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">ログイン</button>
+            </div>
+    </form>
+    <p style="padding:0.5em;">アカウントがありませんか？　<a href="{% url 'signup' %}">新規ユーザー登録</a></p>
+</div>
+
+{% endblock content %}
